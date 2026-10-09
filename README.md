@@ -4,7 +4,7 @@ Dados públicos consumidos pelo app da Igreja Presbiteriana de Joinville.
 
 ## videos.json
 
-Últimas 3 transmissões ao vivo encerradas do canal [@IgrejaPresbiterianadeJoinville](https://www.youtube.com/@IgrejaPresbiterianadeJoinville/streams), gerado automaticamente pelo workflow `.github/workflows/update-videos.yml` (domingo 12h30, domingo 22h e segunda 8h).
+Últimas 3 transmissões ao vivo encerradas do canal [@IgrejaPresbiterianadeJoinville](https://www.youtube.com/@IgrejaPresbiterianadeJoinville/streams), gerado automaticamente pelo workflow `.github/workflows/update-videos.yml` (domingos às 12h e às 22h).
 
 - `titulo`: título da live
 - `preletor`: texto após o último ` - ` da primeira linha da descrição (ex.: `Culto noturno de 04/10/2026 - Rev. Joel Lino Lemes`)
