@@ -1,0 +1,40 @@
+name: Atualiza mural de avisos
+
+on:
+  schedule:
+    # Horário em UTC (Brasília = UTC-3)
+    - cron: '0 8 * * 0' # domingo 5h, após a troca do PDF no sábado
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instala poppler
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - name: Converte PDF mais recente
+        run: node scripts/update-notices.mjs
+        env:
+          GOOGLE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+
+      - name: Publica alterações
+        run: |
+          if [ -z "$(git status --porcelain -- avisos.json avisos)" ]; then
+            echo "Sem alterações no mural"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A avisos.json avisos
+          git commit -m "Atualiza mural de avisos"
+          git push

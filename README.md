@@ -12,4 +12,14 @@ Dados públicos consumidos pelo app da Igreja Presbiteriana de Joinville.
 
 Para atualizar manualmente: aba **Actions** → *Atualiza transmissões recentes* → **Run workflow**.
 
-Requer o secret `YOUTUBE_API_KEY` (chave da YouTube Data API v3).
+## avisos.json
+
+Páginas do PDF mais recente da [pasta do mural de avisos](https://drive.google.com/drive/folders/18IXGH8P60BWBuZ7ReSI5YXd_miCF3BYr), convertidas em JPEG (sem a primeira e a última página) pelo workflow `.github/workflows/update-notices.yml` (domingos às 5h). Só é atualizado quando o PDF da pasta muda.
+
+- `atualizadoEm`: data em que o PDF novo foi encontrado (AAAA-MM-DD)
+- `proporcao`: largura / altura das páginas
+- `paginas`: URLs das imagens, em ordem
+
+## Configuração
+
+Requer o secret `YOUTUBE_API_KEY`: chave de API do Google com acesso à YouTube Data API v3 e à Google Drive API.
