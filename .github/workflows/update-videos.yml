@@ -27,7 +27,7 @@ jobs:
 
       - name: Publica alterações
         run: |
-          if git diff --quiet -- videos.json; then
+          if [ -z "$(git status --porcelain -- videos.json)" ]; then
             echo "Sem alterações em videos.json"
             exit 0
           fi
