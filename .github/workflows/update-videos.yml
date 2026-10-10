@@ -2,9 +2,8 @@ name: Atualiza transmissões recentes
 
 on:
   schedule:
-    # Horários em UTC (Brasília = UTC-3)
-    - cron: '0 15 * * 0' # domingo 12h, após EBD e culto matutino
-    - cron: '0 1 * * 1' # domingo 22h, após culto noturno
+    # Horário em UTC (Brasília = UTC-3)
+    - cron: '30 0 * * 1' # domingo 21h30, após o culto noturno
   workflow_dispatch:
 
 permissions:
