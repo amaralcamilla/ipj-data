@@ -2,8 +2,10 @@ name: Atualiza mural de avisos
 
 on:
   schedule:
-    # Horário em UTC (Brasília = UTC-3)
-    - cron: '0 8 * * 0' # domingo 5h, após a troca do PDF no sábado
+    # Horário em UTC (Brasília = UTC-3); execuções de reserva caso o GitHub atrase ou pule uma
+    - cron: '17 6 * * 0' # domingo 3h17
+    - cron: '17 8 * * 0' # domingo 5h17
+    - cron: '17 10 * * 0' # domingo 7h17
   workflow_dispatch:
 
 permissions:
