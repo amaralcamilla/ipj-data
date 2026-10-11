@@ -2,8 +2,10 @@ name: Atualiza transmissões recentes
 
 on:
   schedule:
-    # Horário em UTC (Brasília = UTC-3)
-    - cron: '30 0 * * 1' # domingo 21h30, após o culto noturno
+    # Horário em UTC (Brasília = UTC-3); execuções de reserva caso o GitHub atrase ou pule uma
+    - cron: '17 0 * * 1' # domingo 21h17, após o culto noturno
+    - cron: '17 1 * * 1' # domingo 22h17
+    - cron: '17 2 * * 1' # domingo 23h17
   workflow_dispatch:
 
 permissions:
